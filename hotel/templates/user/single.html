@@ -1,0 +1,66 @@
+{% load static %}
+
+{% include "../includes/landing_top.html" %}
+
+<body>
+	<div  class="bg-img">
+		<!-- banner -->
+		{% include "../includes/banner1.html" %}
+		<!-- //banner -->
+	</div>
+	<!-- single -->
+	<div class="blog">
+				<!-- container -->
+				<div class="container">
+					<div class="col-md-8 blog-top-left-grid">
+						<div class="left-blog left-single">
+							<div class="blog-left">
+								<div class="single-left-left">
+									{% comment %} <p>Posted By <a href="#">Admin</a> &nbsp;&nbsp; on April 27, 2021 &nbsp;&nbsp; <a href="#">Comments (10)</a></p> {% endcomment %}
+									<img src="/media/{{food.image}}" alt="">
+								</div>
+								<div class="blog-left-bottom">
+									<p>{{food.content_description}}</p>
+								</div>
+								<a href="{% url 'hotel:addTocart' food.id %}">
+									<button class="btn btn-primary">Add to Cart</button>
+								</a>
+							</div>
+						</div>
+					</div>
+					{% comment %} <div class="col-md-4 blog-top-right-grid">
+						<div class="categories">
+							<h3>Categories</h3>
+							<ul>
+								<li><a href="#">Negros Best Food</a></li>
+								<li><a href="#">Manila Best Food</a></li>
+								<li><a href="#">Iloilo Best Food</a></li>
+								<li><a href="#">Cebu Best Food</a></li>
+								<li><a href="#">Pasay Best Food</a></li>
+								<li><a href="#">Makati Best Food</a></li>
+							</ul>
+						</div>
+						<div class="categories">
+							<h3>Archive</h3>
+							<ul class="marked-list offs1">
+								<li><a href="#">January 2021 (7)</a></li>
+                                <li><a href="#">February 2021 (11)</a></li>
+                                <li><a href="#">March 2021 (12)</a></li>
+                                <li><a href="#">April 2021 (14)</a> </li>
+                                <li><a href="#">May 2021 (10)</a></li>    
+                                <li><a href="#">June 2021 (12)</a></li>
+                                <li><a href="#">July 2021 (8)</a></li>
+                                <li><a href="#">August 2021 (7)</a> </li>
+                                <li><a href="#">September 2021 (8)</a></li>
+                                <li><a href="#">October 2021 (6)</a></li>
+                                <li><a href="#">November 2021 (6)</a></li>  
+                                <li><a href="#">December 2021 (6)</a></li>                          
+							</ul>
+						</div>
+					</div>
+					<div class="clearfix"> </div> {% endcomment %}
+				</div>
+				<!-- //container -->
+	</div>
+	<!-- //single -->
+	{% include "../includes/footer.html" %}

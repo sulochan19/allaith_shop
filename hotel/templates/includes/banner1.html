@@ -1,0 +1,36 @@
+        {% load static %}
+
+        <div class="banner code-banner">
+			<div class="container">
+				<div class="header">
+					<div class="logo">
+						<h1><a href="{% url 'hotel:index' %}">Al Laith </a></h1>
+					</div>
+					<div class="top-nav">
+						<nav class="navbar navbar-default">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Menu
+								</button>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									{% comment %} <li><a href="{{}}">Home</a></li>
+									<li><a href="menu.html">Menu</a></li> {% endcomment %}
+									{% if user.is_authenticated %}
+									<li><a href="{% url 'hotel:cart' %}">Cart{% if item_count > 0 %}({{item_count}}){%endif%}</a></li>
+									<li><a href="{% url 'hotel:my_orders' %}">Orders</a></li>
+									{% if user.is_staff %}
+									<li><a href="{% url 'hotel:dashboard_admin' %}">Dashboard</a></li>
+									{% endif %}
+									<li><a href="/accounts/logout/">Logout</a></li>
+									{% else %}
+									<li><a href="/accounts/login/">Login</a></li>
+									{% endif %}
+									<div class="clearfix"> </div>
+								</ul>
+							</div>
+						</nav>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
