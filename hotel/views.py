@@ -27,8 +27,7 @@ def signup(request):
             user.email = form.cleaned_data['email']
             user.set_password(form.cleaned_data['password'])
             user.save()
-            contact = form.cleaned_data['contact']
-            customer = Customer.objects.create(customer=user, contact=contact)
+            customer = Customer.objects.create(customer=user)
             customer.save()
             return redirect('login')
         else:
@@ -131,31 +130,30 @@ def edit_food(request, foodID):
         food.save()
     return redirect('hotel:foods_admin')
 
-@login_required
-@staff_member_required
-def add_user(request):
-    if request.method == "POST":
-        contact = request.POST['contact']
-        email = request.POST['email']
-        password = request.POST['password']
-        confirm_pass = request.POST['confirm_password']
-        username = email
+# @login_required
+# @staff_member_required
+# def add_user(request):
+#     if request.method == "POST":
+#         email = request.POST['email']
+#         password = request.POST['password']
+#         confirm_pass = request.POST['confirm_password']
+#         username = email
         
-        if (contact == "") or (email == "") or (password == "") or (confirm_pass == ""):
-            customers = Customer.objects.filter()
-            error_msg = "Please enter valid details"
-            return render(request, 'admin_temp/users.html', {'users': customers, 'error_msg': error_msg})
+#         if(email == "") or (password == "") or (confirm_pass == ""):
+#             customers = Customer.objects.filter()
+#             error_msg = "Please enter valid details"
+#             return render(request, 'admin_temp/users.html', {'users': customers, 'error_msg': error_msg})
 
-        if password == confirm_pass:
-            user = User.objects.create(username=username, email=email, password=password)
-            user.save()
-            cust = Customer.objects.create(customer=user, contact=contact)
-            cust.save()
-            success_msg = "New user successfully created"
-            customers = Customer.objects.filter()
-            return render(request, 'admin_temp/users.html', {'users': customers, 'success_msg': success_msg})
+#         if password == confirm_pass:
+#             user = User.objects.create(username=username, email=email, password=password)
+#             user.save()
+#             cust = Customer.objects.create(customer=user)
+#             cust.save()
+#             success_msg = "New user successfully created"
+#             customers = Customer.objects.filter()
+#             return render(request, 'admin_temp/users.html', {'users': customers, 'success_msg': success_msg})
 
-    return redirect('hotel:users_admin')
+#     return redirect('hotel:users_admin')
 
 @login_required
 @staff_member_required

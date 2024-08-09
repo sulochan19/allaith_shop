@@ -11,7 +11,7 @@ urlpatterns = [
     url(r'^dashboard/admin/foods/$', views.foods_admin, name='foods_admin'),
     url(r'^dashboard/admin/$', views.dashboard_admin, name='dashboard_admin'),
     
-    url(r'^dashboard/admin/users/add_user/$', views.add_user, name='add_user'),
+    # url(r'^dashboard/admin/users/add_user/$', views.add_user, name='add_user'),
     url(r'^dashboard/admin/foods/add_food/$', views.add_food, name='add_food'),
     url(r'^dashboard/admin/foods/editFood/(?P<foodID>\d+)/$', views.edit_food, name='edit_food'),
     url(r'^dashboard/admin/foods/foodDetails/(?P<foodID>\d+)/$', views.food_details, name='food_details'),

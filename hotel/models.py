@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 
 class Customer(models.Model):
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
-    contact = models.CharField(max_length = 10)
     orders = models.IntegerField(default=0)
     total_sale = models.IntegerField(default=0)
 
@@ -19,7 +18,6 @@ class Staff(models.Model):
     )
     
     staff_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    contact = models.CharField(max_length = 10)
     email = User.email
     role = models.CharField(max_length = 30, choices = ROLES)
     
