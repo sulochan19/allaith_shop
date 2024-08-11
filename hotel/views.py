@@ -3,19 +3,11 @@ from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.core.files.storage import FileSystemStorage
-from django.contrib.sites.shortcuts import get_current_site
-from django.utils.encoding import force_bytes, force_text
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.template.loader import render_to_string
-from django.core.mail import send_mail
 from django.contrib.auth.models import User
-from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
-from django.contrib import messages
 from django.utils import timezone
-from reportlab.pdfgen import canvas
-from .models import Customer, Order, Food, Cart, OrderContent, Staff
+from .models import Customer, Order, Food, Cart, OrderContent
 from .forms import SignUpForm
 
 def signup(request):
