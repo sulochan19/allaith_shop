@@ -189,7 +189,6 @@ def placeOrder(request):
                 item.food.save()
                 item.delete()
         messages.success(request,"Order Placed Successfully!")
-    messages.info(request,"Your cart is empty!")
     return redirect('hotel:index')
 
 @login_required
