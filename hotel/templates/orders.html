@@ -35,7 +35,6 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>Customer</th>
                                         <th>Order Time</th>
                                         <th>Item</th>
                                         <th>Amount (AED)</th>
@@ -45,7 +44,6 @@
                                 <tbody>
                                     {% for order_dict in orders_with_contents %}
                                     <tr>
-                                        <td>{{ order_dict.order.customer.customer.email }}</td>
                                         <td>{{ order_dict.order.order_timestamp }}</td>
                                         <td>
                                                 {% for content in order_dict.contents %}
