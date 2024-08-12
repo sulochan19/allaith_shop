@@ -34,8 +34,7 @@ class Order(models.Model):
     )
 
     customer = models.ForeignKey(Customer,on_delete=models.CASCADE)
-    order_timestamp = models.CharField(max_length=100, blank=True)
-    delivery_timestamp = models.CharField(max_length=100, blank=True)
+    order_timestamp = models.DateTimeField(auto_now_add=True)
     payment_status = models.CharField(max_length = 100, choices = STATUS)
     delivery_status = models.CharField(max_length = 100, choices = STATUS)
     if_cancelled = models.BooleanField(default = False)
@@ -47,7 +46,6 @@ class Order(models.Model):
         self.save()
 
     def confirmDelivery(self):
-        self.delivery_timestamp = timezone.localtime().__str__()[:19]
         self.delivery_status = self.completed
         self.save()
     
