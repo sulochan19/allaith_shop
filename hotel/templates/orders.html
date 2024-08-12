@@ -46,13 +46,6 @@
                                     {% for order_dict in orders_with_contents %}
                                     <tr>
                                         <td>{{ order_dict.order.customer.customer.email }}</td>
-                                        <td>
-                                            {% if order_dict.order.if_cancelled == False %}
-                                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                                            {% else %}
-                                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                            {% endif %}
-                                        </td>
                                         <td>{{ order_dict.order.order_timestamp }}</td>
                                         <td>
                                                 {% for content in order_dict.contents %}
