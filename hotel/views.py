@@ -35,7 +35,7 @@ def signup(request):
 def dashboard_admin(request):
     orders = Order.objects.count()
     customers = Customer.objects.count()
-    completed_orders = Order.objects.filter(delivery_status="Completed")
+    completed_orders = Order.objects.filter(delivery_status="Completed",   order_timestamp__date=timezone.now().date())
     top_customers = Customer.objects.filter().order_by('-total_sale')
     latest_orders = Order.objects.filter().order_by('-order_timestamp')
     sales = 0
