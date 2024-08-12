@@ -9,6 +9,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.utils import timezone
 from .models import Customer, Order, Food, Cart, OrderContent
 from .forms import SignUpForm
+from django.contrib import messages
 
 def signup(request):
     if request.method == "POST":
@@ -187,6 +188,8 @@ def placeOrder(request):
                 item.food.quantity_available -= 1
                 item.food.save()
                 item.delete()
+        messages.success(request,"Order Placed Successfully!")
+    messages.info(request,"Your cart is empty!")
     return redirect('hotel:index')
 
 @login_required

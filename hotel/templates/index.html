@@ -12,6 +12,11 @@
 	<!-- special -->
 	<div class="special">
 		<div class="container">
+			{% for message in messages %}
+			<div class="alert alert-success" role="alert">
+				{{message}}
+			</div>
+			{% endfor %}
 			<div class="special-heading">
 				<h3>Today's Special</h3>
 			</div>
