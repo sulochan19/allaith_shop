@@ -65,17 +65,13 @@ class Food(models.Model):
     name = models.CharField(max_length=250)
     status = models.CharField(max_length=50, choices=STATUS)
     content_description = models.TextField()
-    base_price = models.FloatField()
-    sale_price = models.FloatField(default=base_price)
+    sale_price = models.FloatField()
     image = models.FileField(blank=True, null =True)
     num_order = models.IntegerField(default=0)
     quantity_available = models.IntegerField()
 
     def __str__(self):
         return self.name
-    
-    #def calculateSalePrice(self):
-     #   self.sale_price = (100.0 - self.discount)/100.0 * self.base_price
 
 class OrderContent(models.Model):
     quantity = models.IntegerField(default=1)

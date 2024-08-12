@@ -109,11 +109,7 @@ def confirm_delivery(request, orderID):
 def edit_food(request, foodID):
     food = Food.objects.filter(id=foodID)[0]
     if request.method == "POST":
-        if request.POST['base_price'] != "":
-            food.base_price = request.POST['base_price']
-
         status = request.POST.get('disabled')
-        print(status)
         if status == 'on':
             food.status = "Disabled"
         else:
@@ -122,31 +118,6 @@ def edit_food(request, foodID):
         food.save()
     return redirect('hotel:foods_admin')
 
-# @login_required
-# @staff_member_required
-# def add_user(request):
-#     if request.method == "POST":
-#         email = request.POST['email']
-#         password = request.POST['password']
-#         confirm_pass = request.POST['confirm_password']
-#         username = email
-        
-#         if(email == "") or (password == "") or (confirm_pass == ""):
-#             customers = Customer.objects.filter()
-#             error_msg = "Please enter valid details"
-#             return render(request, 'admin_temp/users.html', {'users': customers, 'error_msg': error_msg})
-
-#         if password == confirm_pass:
-#             user = User.objects.create(username=username, email=email, password=password)
-#             user.save()
-#             cust = Customer.objects.create(customer=user)
-#             cust.save()
-#             success_msg = "New user successfully created"
-#             customers = Customer.objects.filter()
-#             return render(request, 'admin_temp/users.html', {'users': customers, 'success_msg': success_msg})
-
-#     return redirect('hotel:users_admin')
-
 @login_required
 @staff_member_required
 def add_food(request):
@@ -154,18 +125,17 @@ def add_food(request):
         name = request.POST['name']
         status = request.POST['status']
         content = request.POST['content']
-        base_price = request.POST['base_price']
         sale_price = request.POST['sale_price']
         image = request.FILES['image']
         fs = FileSystemStorage()
         filename = fs.save(image.name, image)
 
-        if (name == "") or (status is None) or (content == "") or (base_price == ""):
+        if (name == "") or (status is None) or (content == ""):
             foods = Food.objects.filter()
             error_msg = "Please enter valid details"
             return render(request, 'admin_temp/foods.html', {'foods': foods, 'error_msg': error_msg})
 
-        food = Food.objects.create(name=name, status=status, content_description=content, base_price=base_price, sale_price=sale_price, image=filename)
+        food = Food.objects.create(name=name, status=status, content_description=content, sale_price=sale_price, image=filename)
         food.save()
         foods = Food.objects.filter()
         success_msg = "Please enter valid details"
