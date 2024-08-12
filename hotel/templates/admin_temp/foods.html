@@ -69,12 +69,10 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Course</th>
                                 <th>Description</th>
-                                <th>Base Price</th>
                                 <th>Sale Price</th>
                                 <th>Status</th>
-                                <th>Expense/Sales</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -82,7 +80,6 @@
                             <tr>
                                 <td><img src="/media/{{food.image}}" width="45" height="45"></td>
                                 <td>{{food.name}}</td>
-                                <td>{{food.course}}</td>
                                 <td>{{food.content_description|truncatechars:150}}</td>
                                 <td>{{food.sale_price}}</td>
                                 <td>{% if food.status == 'Enabled' %}
