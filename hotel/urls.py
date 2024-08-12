@@ -15,8 +15,7 @@ urlpatterns = [
     url(r'^dashboard/admin/foods/add_food/$', views.add_food, name='add_food'),
     url(r'^dashboard/admin/foods/editFood/(?P<foodID>\d+)/$', views.edit_food, name='edit_food'),
     url(r'^dashboard/admin/foods/foodDetails/(?P<foodID>\d+)/$', views.food_details, name='food_details'),
-    
-    url(r'^dashboard/admin/orders/confirm_order/(?P<orderID>\d+)/$', views.confirm_order, name='confirm_order'),
+
     url(r'^dashboard/admin/orders/confirm_delivery/(?P<orderID>\d+)/$', views.confirm_delivery, name='confirm_delivery'),
     
     url(r'^delete_item/(?P<ID>\d+)/$', views.delete_item, name='delete_item'),

@@ -35,7 +35,7 @@ def signup(request):
 def dashboard_admin(request):
     orders = Order.objects.count()
     customers = Customer.objects.count()
-    completed_orders = Order.objects.filter(payment_status="Completed")
+    completed_orders = Order.objects.filter(delivery_status="Completed")
     top_customers = Customer.objects.filter().order_by('-total_sale')
     latest_orders = Order.objects.filter().order_by('-order_timestamp')
     sales = 0
@@ -83,18 +83,18 @@ def index(request):
     return render(request, 'index.html', {'food':food,'item_count':items})
 
 
-@login_required
-@staff_member_required
-def confirm_order(request, orderID):
-    order = Order.objects.get(id=orderID)
-    order.confirmOrder()
-    order.save()
-    customerID = order.customer.id
-    customer = Customer.objects.get(id=customerID)
-    customer.total_sale += order.total_amount
-    customer.orders += 1
-    customer.save()
-    return redirect('hotel:orders_admin')
+# @login_required
+# @staff_member_required
+# def confirm_order(request, orderID):
+#     order = Order.objects.get(id=orderID)
+#     order.confirmOrder()
+#     order.save()
+#     customerID = order.customer.id
+#     customer = Customer.objects.get(id=customerID)
+#     customer.total_sale += order.total_amount
+#     customer.orders += 1
+#     customer.save()
+#     return redirect('hotel:orders_admin')
 
 @login_required
 @staff_member_required
@@ -179,7 +179,7 @@ def placeOrder(request):
         for item in items:
             food = item.food
             if food.quantity_available > 0:
-                order = Order.objects.create(customer=customer, order_timestamp=timezone.now(), payment_status="Pending", 
+                order = Order.objects.create(customer=customer, order_timestamp=timezone.now(), 
                 delivery_status="Pending", total_amount=food.sale_price)
                 order.save()
                 orderContent = OrderContent(food=food, order=order)

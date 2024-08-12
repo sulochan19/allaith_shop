@@ -35,15 +35,9 @@ class Order(models.Model):
 
     customer = models.ForeignKey(Customer,on_delete=models.CASCADE)
     order_timestamp = models.DateTimeField(auto_now_add=True)
-    payment_status = models.CharField(max_length = 100, choices = STATUS)
     delivery_status = models.CharField(max_length = 100, choices = STATUS)
     if_cancelled = models.BooleanField(default = False)
     total_amount = models.IntegerField()
-
-    def confirmOrder(self):
-        self.order_timestamp = timezone.localtime().__str__()[:19]
-        self.payment_status = self.completed
-        self.save()
 
     def confirmDelivery(self):
         self.delivery_status = self.completed
