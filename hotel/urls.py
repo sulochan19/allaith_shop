@@ -14,7 +14,7 @@ urlpatterns = [
     # path('dashboard/admin/users/add_user/', views.add_user, name='add_user'),
     path('dashboard/admin/foods/add_food/', views.add_food, name='add_food'),
     re_path(r'^dashboard/admin/foods/editFood/(?P<foodID>\d+)/$', views.edit_food, name='edit_food'),
-    re_path(r'^dashboard/admin/foods/foodDetails/(?P<foodID>\d+)/$', views.food_details, name='food_details'),
+    # re_path(r'^dashboard/admin/foods/foodDetails/(?P<foodID>\d+)/$', views.food_details, name='food_details'),
 
     re_path(r'^dashboard/admin/orders/confirm_delivery/(?P<orderID>\d+)/$', views.confirm_delivery, name='confirm_delivery'),
     

@@ -23,13 +23,14 @@
 			<div class="special-grids">
 			{% for f in food %}
 					<div class="col-md-4 w3l-special-grid">
-						<a href="{% url 'hotel:food_details' f.id %}">
+						{% comment %} <a href="{% url 'hotel:food_details' f.id %}"> {% endcomment %}
 							<div class="col-md-6 w3ls-special-img" style="background: url('/media/{{f.image}}') no-repeat -17px 0px; background-size: cover;">
 							</div>
-						</a>
+						{% comment %} </a> {% endcomment %}
 
 						<div class="col-md-6 agileits-special-info">
-							<a href="{% url 'hotel:food_details' f.id %}"><h4>{{f.name}}</h4></a>
+							{% comment %} <a href="{% url 'hotel:food_details' f.id %}"><h4>{{f.name}}</h4></a> {% endcomment %}
+							<h4>{{f.name}}</h4></a>
 							<p>AED {{f.sale_price|truncatechars:90}}</p>
 							<p>Quantity Available: {{f.quantity_available}}</p>
 							<p>{% if f.quantity_available > 0 %}
