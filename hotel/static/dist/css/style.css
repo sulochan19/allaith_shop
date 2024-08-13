@@ -148,6 +148,7 @@ div#bs-example-navbar-collapse-1 {
 }
 .w3l-special-grid {
     padding: 0;
+	margin-top: 20px;
 }
 .w3ls-special-img {
     padding: 0;
@@ -171,7 +172,7 @@ div#bs-example-navbar-collapse-1 {
     margin: .3em 0 0 0;
     position: relative;
 }
-.agileits-special-info h4:after{
+/* .agileits-special-info h4:after{
     content: '';
     background: #FD5C63;
     width: 30%;
@@ -179,12 +180,12 @@ div#bs-example-navbar-collapse-1 {
     position: absolute;
     top: 36px;
     left: 53px;
-}
+} */
 .agileits-special-info p{
     color: #909090;
     font-size: 1em;
     line-height: 1.5em;
-    margin: 1.5em 0 0 0;
+    /* margin: 1.5em 0 0 0; */
 }
 .wthree-img{
     background: url(../../images/s2.jpg) no-repeat -35px 0px;
