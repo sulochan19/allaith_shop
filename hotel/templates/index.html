@@ -30,7 +30,7 @@
 
 						<div class="col-md-6 agileits-special-info">
 							<a href="{% url 'hotel:food_details' f.id %}"><h4>{{f.name}}</h4></a>
-							<p>{{f.content_description|truncatechars:90}}</p>
+							<p>AED {{f.sale_price|truncatechars:90}}</p>
 							<p>Quantity Available: {{f.quantity_available}}</p>
 							<p>{% if f.quantity_available > 0 %}
 							<a href="{% url 'hotel:addTocart' f.id %}">
