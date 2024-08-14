@@ -6,3 +6,4 @@ hotel/__pycache__/
 reflex/__pycache__/
 hotel/migrations/
 db.sqlite3
+.env
