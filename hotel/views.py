@@ -157,7 +157,7 @@ def addTocart(request, foodID):
 
 @login_required
 def delete_item(request, ID):
-    item = Cart.objects.get(id=ID)
+    item = get_object_or_404(Cart, id=ID, user=request.user)
     item.delete()
     return redirect('hotel:cart')
 
