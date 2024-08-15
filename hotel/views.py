@@ -103,6 +103,11 @@ def confirm_delivery(request, orderID):
     order = Order.objects.get(id=orderID)
     order.confirmDelivery()
     order.save()
+    customerID = order.customer.id
+    customer = Customer.objects.get(id=customerID)
+    customer.total_sale += order.total_amount
+    customer.orders += 1
+    customer.save()
     return redirect('hotel:orders_admin')
 
 @login_required
